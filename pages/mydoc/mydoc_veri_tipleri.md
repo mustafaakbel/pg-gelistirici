@@ -167,7 +167,7 @@ Hex veri formatında binary veriler bit başına 2 hexadecimal hane olarak sakla
 
 Escape formatı ise geleneksel PostgreSQL bytea tipi formatıdır. Bu format, binary veri stringini ascii karakter dizisi olarak işlerken ascii olarak temsil edilemeyen karakterler için kaçış karakteri karşılıklarını kullanır. Böylece bu formatta da dönüşüm sağlanabilmiş olur. Ascii olarak ifade edilmeyen octetlere örnek aşağıda verilmiştir.
 
-![Escape formatı](/images/veri_operator_tipleri_sekil1.png)
+![Escape formatı](/pg-gelistirici/images/veri_operator_tipleri_sekil1.png)
 
 Burada tırnak ve backslash karakterlerinin kullanımına dikkat edilmelidir.
 
@@ -234,15 +234,15 @@ MINUTE TO SECOND
 
 Aşağıdaki tablo tarih tipindeki veriler için bazı örnek gösterimler sunmaktadır.
 
-![Tarih tipindeki veriler için örnek](/images/veri_operator_tipleri_sekil2.png)
+![Tarih tipindeki veriler için örnek](/pg-gelistirici/images/veri_operator_tipleri_sekil2.png)
 
 Benzer şekilde aşağıdaki tabloda da saat cinsinden veri tiplerinin gösterimine örnekler verilmiştir.
 
-![Saat tipindeki veriler için örnek](/images/veri_operator_tipleri_sekil3.png)
+![Saat tipindeki veriler için örnek](/pg-gelistirici/images/veri_operator_tipleri_sekil3.png)
 
 Timestamp with time zone ve time with time zone türündeki veri tipleri zaman dilimi bilgisini de saklamaktadır. Eğer veri tipi “without time zone” şeklinde ise ve girilen veri zaman dilimi bilgisi içeriyorsa, hata verilmez fakat zaman dilimi bilgisi veriden silinir. Zaman dilimi tutan veri türlerinde zaman dilimi bilgisi aşağıdaki şekillerde gösterilebilir.
 
-![Saat tipindeki veriler için örnek](/images/veri_operator_tipleri_sekil4.png)
+![Saat tipindeki veriler için örnek](/pg-gelistirici/images/veri_operator_tipleri_sekil4.png)
 
 Timestamp veri tipi tarihi, zamanı ve (istenirse) zaman dilimi bilgisini saklayabilir.  Ayrıca timestamp verisinde milattan önceki yıllar için BC, milattan sonraki yıllar için AD ifadesi de saklanabilir. aşağıda timestamp türünde farklı örnekler bulunmaktadır.
 
@@ -267,7 +267,7 @@ Result: 2001-02-16 05:38:40
 
 PostgreSQL bünyesinde zamansal anlamda bazı özel ifadeler bulunmaktadır. Bunlar da aşağıdaki tabloda özetlenmiştir. Sistem zamanını almak için ayrıca ``CURRENT_DATE``, ``CURRENT_TIME``, ``CURRENT_TIMESTAMP``, ``LOCALTIME``, ``LOCALTIMESTAMP`` fonksiyonları da mevcuttur.
 
-![zamansal anlamda bazı özel ifadeler](/images/veri_operator_tipleri_sekil5.png)
+![zamansal anlamda bazı özel ifadeler](/pg-gelistirici/images/veri_operator_tipleri_sekil5.png)
 
 Zaman bilgisinin nasıl göründüğü ile ilgili farklı görünüm konvansiyonları vardır. PostgreSQL bu konvansiyonlar arasında geçiş yapabilmek için postgresql.conf içinde bulunan ``“SET datestyle”`` komutunu kullanmamıza izin verir. Ayrıca **PGDATESTYLE** çevre değişkeni de aynı amaçla kullanılabilir. Yine benzer şekilde zaman dilimindeki oturum bazlı değişimler için ``“SET TIME ZONE”``  fonksiyonu kullanılabilir.
 
@@ -275,7 +275,7 @@ Zaman bilgisinin nasıl göründüğü ile ilgili farklı görünüm konvansiyon
 
 Örneğin ``'1 12:59:10'`` ve ``'1 day 12 hours 59 min 10 sec'`` ifadeleri birbirinin aynısıdır ve herhangi bir tarih - zaman türü veri üzerinde yapılacak işlemlere dahil edilebilir. Aşağıdaki tabloda zamanı veya zaman aralığını ifade ederken kısaltma olarak kullanılabilecek tanımlar bulunmaktadır.
 
-![zamanı veya zaman aralığını ifade ederken kısaltma olarak kullanılabilecek tanımlar](/images/veri_operator_tipleri_sekil6.png)
+![zamanı veya zaman aralığını ifade ederken kısaltma olarak kullanılabilecek tanımlar](/pg-gelistirici/images/veri_operator_tipleri_sekil6.png)
 
 ### Boolean Veri Tipleri
 
@@ -312,7 +312,7 @@ PostgreSQL farklı tipte network adreslerinin (IPv4, IPv6, MAC) saklanabilmesini
 
 Network adresi saklarken PostgreSQL’deki seçeneklerimizden ilki inet’tir ve inet tipi ile IPv4 ile IPv6 formatındaki host adreslerini saklayabiliriz. Bu veri tipi alt ağ adresini de opsiyonel olarak saklamaya izin vermektedir. IPv6’da adres boyutu 128 bittir ve 128 bit ile tekil bir sunucu adresi ifade edilir. Eğer ağ adresi saklanırken tekil bilgisayarlar saklanmayıp yerine sadece networkler kabul edilecekse bu durumda inet yerine cidr tipi kullanılması tavsiye edilir.
 
-![Cidr tipi için örnekler](/images/veri_operator_tipleri_sekil7.png)
+![Cidr tipi için örnekler](/pg-gelistirici/images/veri_operator_tipleri_sekil7.png)
 
 Cidr tipi ise inet’e benzer şekilde IPv4 ve IPv6 network tanımlarını kabul eder. Bununla ilgili örnekler yukarıdaki tabloda verilmiştir. cidr’ın inet’ten temel farkı, cidr tipindeki alana veri girişi yaparken ağ maskesinin sağındaki bitlere sıfır olan değerler kabul edilebilirken inet sadece sıfır olmayan değerleri kabul etmektedir. inet ve cidr tipindeki alanlara girilen verilerin görünümlerini düzenlemek için host, text ve abbrev gibi fonksiyonlar kullanılabilir.
 
@@ -392,11 +392,11 @@ Dizi tipinde veri girişi yapmak için ``‘{ deger1 ayrac deger2 ayrac ...}’`
 
 ARRAY türünde bir alana veri girişi için aşağıdaki örnekler incelenebilir.
 
-![ARRAY türünde bir alana veri girişi için aşağıdaki örneği](/images/veri_operator_tipleri_sekil8.png)
+![ARRAY türünde bir alana veri girişi için aşağıdaki örneği](/pg-gelistirici/images/veri_operator_tipleri_sekil8.png)
 
 Bunun sonucunda tablo sorgulandığında psql’de aşağıdaki şekilde bir çıktı elde edilir.
 
-![ARRAY türünde bir alana veri girişi için aşağıdaki örneği](/images/veri_operator_tipleri_sekil9.png)
+![ARRAY türünde bir alana veri girişi için aşağıdaki örneği](/pg-gelistirici/images/veri_operator_tipleri_sekil9.png)
 
 Yukarıdaki tabloyu inceleyerek aşağıdaki sorguları çektiğimizde dizi elemanlarına nasıl ulaşıldığını anlayabiliriz.
 
